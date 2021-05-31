@@ -1,0 +1,42 @@
+*.class
+**/.settings
+**/node_modules
+**/.classpath
+**/.project
+**/.mvn
+.metadata/
+.recommenders/
+RemoteSystemsTempFiles/
+.vscode/
+.factorypath
+.springBeans
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+target
+.idea
+*.iml
+*.ear
+*.log
+
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+**/mvnw*
+
+
+configserver/
+eureka/
+springbootadmin/
+yourmicrospringid/
+yourswaggerid/
+zipkin/
+zuul/
+projects/
+samples/
+
+
+nohup*

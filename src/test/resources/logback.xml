@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+	<timestamp key="myTimestamp" timeReference="contextBirth" datePattern="yyyy-MM-dd'_'HH-mm-ss.SSS" />
+	
+	<include resource="org/springframework/boot/logging/logback/base.xml" />
+	<jmxConfigurator />
+	
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>/opt/aplicaciones/mcsv-MS001-PruebaNumero29/log/mcsv-MS001-PruebaNumero29.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+	        <fileNamePattern>/opt/aplicaciones/mcsv-MS001-PruebaNumero29/log/mcsv-MS001-PruebaNumero29-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+	        <maxHistory>30</maxHistory> 
+	        <totalSizeCap>3GB</totalSizeCap>
+	        <maxFileSize>20MB</maxFileSize>
+	    </rollingPolicy>
+	    <encoder>
+	        <pattern>%d %-5level [%thread] %logger{0}: %msg%n</pattern>
+    		<outputPatternAsHeader>true</outputPatternAsHeader>
+	    </encoder>
+	</appender>
+	<appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="FILE" />
+    </appender>
+
+    <root level="WARN">
+        <appender-ref ref="ASYNC" />
+    </root>
+	
+</configuration>

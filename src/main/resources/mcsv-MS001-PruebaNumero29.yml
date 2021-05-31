@@ -1,0 +1,40 @@
+ 
+server:
+  port: ${PORT:0}
+
+ 
+#eureka:
+#  instance:
+#    leaseRenewalIntervalInSeconds: 1
+#    leaseExpirationDurationInSeconds: 2
+#    preferIpAddress: false
+#    hostname: ${HOST}
+#    metadataMap:
+#      instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${random.uuid}
+#    instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${random.uuid}   
+#  client:
+#    serviceUrl:
+#      defaultZone: ${URL_EUREKA:http://localhost:2222/eureka}
+#    healthcheck:
+#      enabled: true
+#    lease:
+#      duration: 5
+      
+
+endpoints.health.sensitive: false
+endpoints.default.web.enabled: true
+management.security.enabled: false
+management.info.git.mode: full 
+management.endpoints.web.exposure.include: "*"
+management.endpoint.health.show-details: ALWAYS
+
+
+swagger.info.title: PruebaNumero29
+swagger.info.description: DEFINITIVO2
+swagger.info.path: com.gfi.PruebaNumero29.controllers
+swagger.info.contact.name: "ont IT"
+swagger.info.contact.email: "apificacion_ont@gfi.es"
+swagger.info.contact.link: ""
+
+security.jwt.enabled: true
+

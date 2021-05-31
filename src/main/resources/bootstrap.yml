@@ -1,0 +1,85 @@
+ 
+ 
+spring.application.name: mcsv-MS001-PruebaNumero29
+spring.profiles.active: ${PERFIL:local}  # LOCAL ENVIRONMENT BY DEFAULT
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+    preferIpAddress: false
+    hostname: ${HOST}
+    metadataMap:
+      instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${random.uuid}
+    instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${random.uuid}   
+  client:
+    serviceUrl:
+      defaultZone: ${URL_EUREKA:http://localhost:2222/eureka}
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+      
+#----------------------------------------------------
+#   LOCAL ENVIRONMENT PROPERTIES
+#----------------------------------------------------
+---
+spring.profiles: local
+
+server:
+  port: 7777
+
+eureka.client.enabled: false
+spring.cloud.bootstrap.enabled: false
+spring.cloud.config.enabled: false
+spring.cloud.config.discovery.enabled: false
+      
+endpoints.health.sensitive: false
+endpoints.default.web.enabled: true
+management.security.enabled: false
+management.info.git.mode: full 
+management.endpoints.web.exposure.include: "*"
+management.endpoint.health.show-details: ALWAYS
+
+endpoints.pause.enabled: true
+endpoints.resume.enabled: true
+endpoints.restart.enabled: true
+endpoints.env.enabled: true
+endpoints.env.post.enabled: true
+
+
+swagger.info.title: PruebaNumero29
+swagger.info.description: DEFINITIVO2
+swagger.info.path: com.gfi.PruebaNumero29.controllers
+swagger.info.contact.name: "Gfi Service Booster"
+swagger.info.contact.email: "service-booster@gfi.es"
+swagger.info.contact.link: ""
+
+security.jwt.enabled: false
+
+
+
+
+#----------------------------------------------------
+#   DEVELOP ENVIRONMENT PROPERTIES
+#----------------------------------------------------
+---
+spring.profiles: dev
+#spring.cloud.config.uri: ${URL_CONFIG_SERVER:http://localhost:1111}
+spring.cloud.config.discovery:
+  enabled: true
+  serviceId: config-server
+spring.cloud.config.fail-fast: true       
+
+
+
+#----------------------------------------------------
+#   PRODUCTION ENVIRONMENT PROPERTIES
+#----------------------------------------------------
+---
+spring.profiles: prod
+#spring.cloud.config.uri: ${URL_CONFIG_SERVER:http://localhost:1111}
+spring.cloud.config.discovery:
+  enabled: true
+  serviceId: config-server
+spring.cloud.config.fail-fast: true  

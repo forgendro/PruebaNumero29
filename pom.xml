@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.gfi.PruebaNumero29</groupId>
+	<artifactId>mcsv-MS001-PruebaNumero29</artifactId>
+	<packaging>jar</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>mcsv-MS001-PruebaNumero29</name>
+
+	<parent>
+		<groupId>servicebooster.arq</groupId>
+		<artifactId>mcs-superpom</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath /> 
+	</parent>
+
+
+	<scm>
+		<connection>scm:git:${GIT_URL}</connection>
+		<url>${GIT_URL}</url>
+		<developerConnection>scm:git:${GIT_URL}</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<properties>
+		<soapui.file>mcsv-MS001-PruebaNumero29-test.xml</soapui.file>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>servicebooster.arq</groupId>
+			<artifactId>comp-functions</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
+
+</project>
